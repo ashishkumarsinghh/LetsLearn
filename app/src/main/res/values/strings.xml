@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LetsLearn</string>
+    <string name="tvCategory">Select Category</string>
+    <string name="tvCourses">Select Course</string>
+    <string name="etDescription">Description</string>
+    <string name="etInstructors">Instructors</string>
+    <string name="moreDetails">More Details</string>
+
+</resources>
