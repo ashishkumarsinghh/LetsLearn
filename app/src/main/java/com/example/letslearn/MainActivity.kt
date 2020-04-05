@@ -1,5 +1,6 @@
 package com.example.letslearn
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,12 +14,16 @@ class MainActivity : AppCompatActivity() {
     private val tag = "LetsLearnMainActivity"
     private lateinit var dm: DataManager
     private lateinit var setCategory: String
+    private lateinit var setCourse: String
+    private lateinit var notesIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        dm = DataManager()
-        addCategorySpinner()
+        notesIntent = Intent(this, NotesList::class.java )
+        button.setOnClickListener { startActivity(notesIntent) }
+        dm = DataManager ()
+        addCategorySpinner ()
     }
 
     private fun addCategorySpinner() {
@@ -50,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
+                setCourse =  courseArr[id.toInt()].courseID
+                notesIntent.putExtra("id", setCourse)
                 instructors.text = courseArr[id.toInt()].instructors
                 description.text = courseArr[id.toInt()].courseDesc
             }

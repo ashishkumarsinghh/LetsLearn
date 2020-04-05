@@ -11,3 +11,9 @@ class CourseCategory(val categoryId: String, var categoryTitle: String) {
         return categoryTitle
     }
 }
+
+class Note(var noteTitle: String, var note: String) {
+    override fun toString(): String {
+        return noteTitle
+    }
+}
