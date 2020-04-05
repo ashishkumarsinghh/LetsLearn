@@ -2,7 +2,7 @@ package com.example.letslearn
 
 import kotlin.collections.ArrayList
 
-class DataManager {
+object DataManager {
     lateinit var categories: ArrayList<CourseCategory>
     lateinit var courses: ArrayList<CourseInfo>
     lateinit var notes : HashMap<String, ArrayList<Note>>

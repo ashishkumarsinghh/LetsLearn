@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.main_activity.*
 class MainActivity : AppCompatActivity() {
 
     private val tag = "LetsLearnMainActivity"
-    private lateinit var dm: DataManager
     private lateinit var setCategory: String
     private lateinit var setCourse: String
     private lateinit var notesIntent: Intent
@@ -22,14 +21,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         notesIntent = Intent(this, NotesList::class.java )
         button.setOnClickListener { startActivity(notesIntent) }
-        dm = DataManager ()
         addCategorySpinner ()
     }
 
     private fun addCategorySpinner() {
         spnrCategory.adapter = ArrayAdapter(
             this, R.layout.category,
-            R.id.tvCategoryItem, dm.categories.toArray()
+            R.id.tvCategoryItem, DataManager.categories.toArray()
         )
         spnrCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-                setCategory = dm.categories[id.toInt()].categoryId
+                setCategory = DataManager.categories[id.toInt()].categoryId
                 Log.d(tag, setCategory)
                 addCourSpinnerAdapter()
             }
@@ -46,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addCourSpinnerAdapter() {
-        val courseArr = dm.courses.filter { course -> course.category == setCategory }
+        val courseArr = DataManager.courses.filter { course -> course.category == setCategory }
         spnrCourse.adapter = ArrayAdapter(this, R.layout.course, R.id.tvCourseItem, courseArr)
         spnrCourse.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

@@ -11,7 +11,6 @@ class NotesList : AppCompatActivity() {
 
     private val tag = "noteslistactivity"
     private lateinit var courseId: String
-    private val dm : DataManager = DataManager()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes_list3)
@@ -20,7 +19,7 @@ class NotesList : AppCompatActivity() {
     }
 
     private fun populateNotesList(id: String){
-        val courseNotes = dm.notes[id]
+        val courseNotes = DataManager.notes[id]
         if (courseNotes != null) {
             listview.adapter = ArrayAdapter(this, R.layout.listitem, courseNotes.toArray())
         }
