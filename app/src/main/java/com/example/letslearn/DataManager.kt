@@ -15,12 +15,28 @@ object DataManager {
         }
         var newNote = Note("Gradient Descent", "Gradient descent algorithm is to find the direction of movement to reduce the error rate.")
         notes["machineL1"]?.add(newNote)
+        notes["machineL1"]?.add(newNote)
+        notes["machineL1"]?.add(newNote)
+        notes["machineL1"]?.add(newNote)
+
         newNote = Note("Gradient Descent", "Gradient descent algorithm is to find the direction of movement to reduce the error rate.")
         notes["androiddev"]?.add(newNote)
+        notes["androiddev"]?.add(newNote)
+        notes["androiddev"]?.add(newNote)
+        notes["androiddev"]?.add(newNote)
+
         newNote = Note("Gradient Descent", "Gradient descent algorithm is to find the direction of movement to reduce the error rate.")
         notes["machineL2"]?.add(newNote)
+        notes["machineL2"]?.add(newNote)
+        notes["machineL2"]?.add(newNote)
+        notes["machineL2"]?.add(newNote)
+
         newNote = Note("Gradient Descent", "Gradient descent algorithm is to find the direction of movement to reduce the error rate.")
         notes["distributed1"]?.add(newNote)
+        notes["distributed1"]?.add(newNote)
+        notes["distributed1"]?.add(newNote)
+        notes["distributed1"]?.add(newNote)
+
     }
     private fun seedCategory(){
         categories = ArrayList()

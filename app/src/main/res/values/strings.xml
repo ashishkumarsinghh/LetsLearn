@@ -5,4 +5,5 @@
     <string name="etDescription">Description</string>
     <string name="etInstructors">Instructors</string>
     <string name="moreDetails">View Notes</string>
+    <string name="settings">Settings</string>
 </resources>
