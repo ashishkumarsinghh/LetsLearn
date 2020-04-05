@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private val tag = "LetsLearnMainActivity"
     private lateinit var dm: DataManager
     private lateinit var setCategory: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -49,8 +50,8 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-                Log.d(tag, id.toString())
-                Log.d(tag, courseArr[id.toInt()].courseTitle)
+                instructors.text = courseArr[id.toInt()].instructors
+                description.text = courseArr[id.toInt()].courseDesc
             }
         }
     }
