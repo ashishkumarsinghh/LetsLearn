@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_notes_list3.*
+import kotlinx.android.synthetic.main.course.*
 import kotlinx.android.synthetic.main.listview.*
 
 class NotesList : AppCompatActivity() {
@@ -15,7 +16,15 @@ class NotesList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes_list3)
         courseId = intent.extras?.get("id").toString()
-        populateNotesList(courseId)
+        //populateNotesList(courseId)
+        populateByCustomAdapter(courseId)
+    }
+
+    private fun populateByCustomAdapter(courseId: String) {
+        val courseNotes = DataManager.notes[courseId]
+        if (courseNotes != null) {
+            listview.adapter = NotesAdapter(this, courseNotes)
+        }
     }
 
     private fun populateNotesList(id: String){
